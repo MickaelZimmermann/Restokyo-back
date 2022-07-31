@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>COMMENT</span> (
+    <span class='primary'>code</span>,
+    <span class='normal'>username</span>,
+    <span class='normal'>date</span>,
+    <span class='normal'>body</span>,
+    <span class='normal'>rating</span>,
+    <span class='normal'>picture</span>,
+    <span class='foreign'>code.1</span>,
+    <span class='foreign'>code.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>TAG</span> (
+    <span class='primary'>code</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>ESTABLISHMENT</span> (
+    <span class='primary'>code</span>,
+    <span class='normal'>name</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>address</span>,
+    <span class='normal'>price</span>,
+    <span class='normal'>opening_days</span>,
+    <span class='normal'>noon_opening_time</span>,
+    <span class='normal'>evening_opening_time</span>,
+    <span class='normal'>website</span>,
+    <span class='normal'>phone</span>,
+    <span class='normal'>rating</span>,
+    <span class='normal'>slug</span>,
+    <span class='foreign'>code.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>Have</span> (
+    <span class='foreign primary'>code</span>,
+    <span class='foreign primary'>code.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>USER</span> (
+    <span class='primary'>code</span>,
+    <span class='normal'>email</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>username</span>,
+    <span class='normal'>lastname</span>,
+    <span class='normal'>firstname</span>,
+    <span class='normal'>birthdate</span>,
+    <span class='normal'>nationality</span>,
+    <span class='normal'>role</span>
+  )
+</div>
+<div>
+  <span class='relation'>DISTRICT</span> (
+    <span class='primary'>code</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+</div>
+</body>
+</html>

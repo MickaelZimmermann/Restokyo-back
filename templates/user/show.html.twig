@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{user.pseudo}}{% endblock %}
+
+{% block body_back %}
+    <h1>Utilisateur {{user.pseudo}}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom d'utilisateur</th>
+                <td>{{ user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Nom de famille</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ user.age }}</td>
+            </tr>
+            <tr>
+                <th>Nationalité</th>
+                <td>{{ user.nationality }}</td>
+            </tr>
+            <tr>
+                <th>Photo de profil</th>
+                <td>{{ user.picture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <a class="btn btn-info btn-m" href="{{ path('back_user_index') }}">Retour à la liste des utilisateurs</a>
+
+    <a class="btn btn-success btn-m" href="{{ path('back_user_edit', {'id': user.id}) }}">Modifier</a>   
+
+    {{ include('user/_delete_form.html.twig') }}
+    
+    
+{% endblock %}

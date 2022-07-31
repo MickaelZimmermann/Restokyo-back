@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des établissements{% endblock %}
+
+{% block body_back %}
+
+    <h1>Liste des établissements</h1>
+
+    <a href="{{ path('back_establishment_new') }}" class="btn btn-success mb-2">Ajouter un établissement</a>
+    <a href="{{ path('back_establishment_index') }}" class="btn btn-info mb-2">Liste des établissements</a>
+    <a href="{{ path('back_establishment_listByStatus',{'status': 0}) }}" class="btn btn-warning mb-2">Liste des établissements à valider</a>
+    <a href="{{ path('back_establishment_listByStatus',{'status': 2}) }}" class="btn btn-danger mb-2">Liste des établissements désactivé</a>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Photo</th>
+                 <th><a href="{{ path('back_establishment_orderByTypeASC') }}">Type</a></th>
+                 <th><a href="{{ path('back_establishment_orderByDistrictASC') }}">Quartier</a></th> 
+                
+                <th>Spécialités</th>
+                <th>Note</th>
+                <th><a href="{{ path('back_establishment_orderByStatusASC') }}">Statut</a></th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for establishment in establishments %}
+            <tr>
+                <td>{{ establishment.id }}</td>
+                <td><a href="{{ path('back_establishment_show', {'id': establishment.id}) }}">{{ establishment.name }}</a></td>
+                <td><img src="{{ establishment.picture }}" height="40"></td>
+                <td><a href="{{ path('back_establishment_listByType',{'type': establishment.type}) }}">{{ establishment.type }}</td>
+                <td><a href="{{ path('back_establishment_listByDistrict',{'district': establishment.district.id}) }}">{{ establishment.district.name }}</td>
+                <td>{% for tag in establishment.tags %}
+                    "{{ tag.name }}"
+                {% endfor %}</td>
+                <td>{{ establishment.rating }}</td>
+                <td><a href="{{ path('back_establishment_listByStatus',{'status': establishment.status}) }}">{{ establishment.status }}</td>
+                <td>
+                    <a href="{{ path('back_establishment_show', {'id': establishment.id}) }}" class="btn btn-sm btn-primary">Détails</a>
+                    <a href="{{ path('back_establishment_edit', {'id': establishment.id}) }}" class="btn btn-sm btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

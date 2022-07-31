@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ establishment.name }}{% endblock %}
+
+{% block body_back %}
+
+    <h1>{{ establishment.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ establishment.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ establishment.name }}</td>
+            </tr>
+            <tr>
+                <th>Photo principal</th>
+                <td><img class="picture__show-establishement" src="{{ establishment.picture }}"></td>
+            </tr>
+            <tr>
+                <th>Photos</th>
+                
+                
+                <td>
+                {% for picture in establishment.pictures %}
+                <img class="picture__show-establishement" src="{{ picture.url }}" alt="">
+                {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ establishment.type }}</td>
+            </tr>
+            <tr>
+                <th>Spécialitées</th>
+                <td>{% for tag in establishment.tags %}
+                    "{{ tag.name }}"
+                {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ establishment.description }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ establishment.address }}</td>
+            </tr>
+            <tr>
+                <th>Site web</th>
+                <td>{{ establishment.website }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>+{{ establishment.phone }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ establishment.price }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ establishment.rating }}</td>
+            </tr>
+            <tr>
+                <th>Jours et horraires d'ouverture</th>
+                <td>{{ establishment.openingtime }}</td>
+            </tr>
+            <tr>
+                <th>Mis à jour</th>
+                <td>{{ establishment.updatedAt }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                {% if establishment.status == 0 %}
+                    <td>A valider</td>
+                {% elseif establishment.status == 1 %}
+                    <td>Activer</td>
+                {% elseif establishment.status == 2 %}
+                    <td>Fermer</td>
+                {% endif %}                
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('back_establishment_index') }}" class="btn btn-info">Retour à la liste des établissements</a>
+    
+    <a href="{{ path('back_establishment_edit', {'id': establishment.id}) }}" class="btn btn-success">Modifier</a>
+
+    {{ include('establishment/_delete_form.html.twig') }}
+
+{% endblock %}

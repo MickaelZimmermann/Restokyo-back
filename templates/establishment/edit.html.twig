@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un établissement{% endblock %}
+
+{% block body_back %}
+    <h1>Modifier un établissement</h1>
+
+    {{ include('establishment/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+    <a href="{{ path('back_establishment_index') }}" class="btn btn-info">Retour à la liste des établissements</a>
+    
+
+    {# {{ include('establishment/_delete_form.html.twig') }} #}
+{% endblock %}

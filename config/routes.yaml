@@ -1,0 +1,8 @@
+# index:
+#    path: /
+#    controller: App\Controller\BackController::home
+
+# Road use by LexikJWT to get our JSON
+api_login_check:
+    path: /api/v1/login_check
+

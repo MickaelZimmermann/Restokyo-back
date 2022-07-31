@@ -1,0 +1,12 @@
+img.menu__user-picture {
+    width: 23em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.picture__show-establishement {
+    max-width: 25em;
+    max-height: 40em;
+}
+

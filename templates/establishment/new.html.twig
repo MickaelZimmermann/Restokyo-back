@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout établissement{% endblock %}
+
+{% block body_back %}
+    <h1>Ajouter un nouvel établissement</h1>
+
+    {{ include('establishment/_form.html.twig') }}
+
+    <a href="{{ path('back_establishment_index') }}" class="btn btn-info">Retour à la liste des établissements</a>
+{% endblock %}

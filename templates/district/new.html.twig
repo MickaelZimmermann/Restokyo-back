@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un quartier{% endblock %}
+
+{% block body_back %}
+    <h1>Créer un nouveau quartier</h1>
+
+    {{ include('district/_form.html.twig') }}
+
+    <a href="{{ path('back_district_index') }}" class="btn btn-info">Retour à la liste des quartiers</a>
+{% endblock %}

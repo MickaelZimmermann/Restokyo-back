@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body_back %}
+    <h1>Liste des utilisateurs</h1>
+
+    <a class="btn btn-warning mb-2" href="{{ path('back_user_new') }}">Ajouter un utilisateur</a>
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="{{ path('back_user_show', {'id': user.id}) }}">{{ user.email }}</a></td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="{{ path('back_user_show', {'id': user.id}) }}">Détails</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('back_user_edit', {'id': user.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

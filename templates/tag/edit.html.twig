@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une spécialités{% endblock %}
+
+{% block body_back %}
+    <h1>Modifier une spécialités</h1>
+
+    {{ include('tag/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+    <a href="{{ path('app_back_tag') }}" class="btn btn-info">Retour à la liste des spécialités</a>
+
+    {{ include('tag/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,48 @@
+{# templates/login/index.html.twig #}
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="{{ asset('html-css/style.css') }}">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+
+    <title>Authentification - ResTokyo</title>
+<body>
+
+<div class="container">
+
+    <h1 class="text-center">Bienvenue dans l'arrière boutique de ResTokyo</h1>
+
+    {% if error %}
+        <div class="text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="container-md text-center">
+        <form action="{{ path('login') }}" method="post">
+            <label for="username">Email :</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="_password"/>
+
+            {# If you want to control the URL the user is redirected to on success #}
+            <input type="hidden" name="_target_path" value="menu"/> 
+    
+            <button type="submit" class="badge rounded-pill bg-primary">Connexion</button>
+    </div>
+        </form>
+    </div>
+        
+    </div>
+</body>
+

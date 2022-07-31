@@ -1,0 +1,11 @@
+COMMENT: code, username, date, body, rating, picture
+Has, 0N ESTABLISHMENT, 11 COMMENT
+TAG: code, name
+
+Write, 0N USER, 11 COMMENT
+ESTABLISHMENT: code, name, type, description, address, price, opening_days, noon_opening_time, evening_opening_time, website, phone, rating, slug
+Have, 0N TAG, 0N ESTABLISHMENT
+
+USER: code, email, password, username, lastname, firstname, birthdate, nationality, role
+Is in, 11 ESTABLISHMENT, 0N DISTRICT
+DISTRICT: code, name
